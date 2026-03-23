@@ -18,8 +18,8 @@ export default async function Page() {
           <h1 className="text-2xl font-bold bg-gradient-to-br from-white to-zinc-500 bg-clip-text text-transparent mb-4">
             Setup Required
           </h1>
-          <p className="text-zinc-400 mb-6">
-            Please make sure your database is reachable and your <code className="text-indigo-400">DATABASE_URL</code> in <code className="text-indigo-400">.env</code> is configured correctly.
+          <p className="text-zinc-400 mb-6 font-mono text-xs break-all bg-zinc-950 p-2 rounded border border-rose-500/20">
+            {(e as Error).message}
           </p>
           <div className="bg-black/50 rounded-2xl p-4 text-left font-mono text-sm text-zinc-500 break-all">
             {process.env.DATABASE_URL?.split('@')[1] || "No DATABASE_URL found"}
