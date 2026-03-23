@@ -19,10 +19,10 @@ export default async function Page() {
             Setup Required
           </h1>
           <p className="text-zinc-400 mb-6">
-            Please make sure your local PostgreSQL is running and `.env` is configured correctly.
+            Please make sure your database is reachable and your <code className="text-indigo-400">DATABASE_URL</code> in <code className="text-indigo-400">.env</code> is configured correctly.
           </p>
-          <div className="bg-black/50 rounded-2xl p-4 text-left font-mono text-sm text-zinc-500">
-            DATABASE_URL=postgresql://postgres:[PASSWORD]@localhost:5432/postgres
+          <div className="bg-black/50 rounded-2xl p-4 text-left font-mono text-sm text-zinc-500 break-all">
+            {process.env.DATABASE_URL?.split('@')[1] || "No DATABASE_URL found"}
           </div>
         </div>
       </main>

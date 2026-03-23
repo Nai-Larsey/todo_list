@@ -4,6 +4,6 @@ import * as schema from "./schema";
 
 const connectionString = process.env.DATABASE_URL!;
 
-// For local direct connection
-const client = postgres(connectionString);
+// Use a single connection for the pooler with prepared statements disabled
+const client = postgres(connectionString, { prepare: false });
 export const db = drizzle(client, { schema });
